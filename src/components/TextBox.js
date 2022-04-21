@@ -20,6 +20,10 @@ function TextBox(props) {
     const hanndleChange = (e) => {
         setText(e)
     }
+    const handleSpaceClick = () => {
+        let spaceFilter = text.split(/[ ]+/);
+        setText(spaceFilter.join(" "));
+    }
 
     const [text, setText] = useState("");
 
@@ -42,6 +46,7 @@ function TextBox(props) {
                 <button onClick={handleUpper} className={`btn btn-outline-${props.mode === "light" ? "dark" : "light"} mx-1 my-1`}>Convert To Upper</button>
                 <button onClick={handleLower} className={`btn btn-outline-${props.mode === "light" ? "dark" : "light"} mx-1 my-1`}>Convert To Lower</button>
                 <button onClick={handleCopy}  className={`btn btn-outline-${props.mode === "light" ? "dark" : "light"} mx-1 my-1`}>Copy</button>
+                <button onClick={handleSpaceClick}  className={`btn btn-outline-${props.mode === "light" ? "dark" : "light"} mx-1 my-1`}>Remove Extra Spaces</button>
                 <button onClick={handleClear} className={`btn btn-outline-${props.mode === "light" ? "dark" : "light"} mx-1 my-1`}>Clear</button>
             </div>
             <div className='container'>
